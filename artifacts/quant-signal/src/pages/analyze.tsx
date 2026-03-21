@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useLocation, Link } from "wouter";
 import { motion } from "framer-motion";
-import { useAnalyzeSetup } from "@workspace/api-client-react";
+import { useAnalyzeSetup, type AnalysisRequest } from "@workspace/api-client-react";
 import { Activity, ImageIcon, FileSpreadsheet, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -52,11 +52,18 @@ export default function AnalyzeSetup() {
   });
 
   const onSubmit = (data: FormValues) => {
-    // Clean up empty string values to undefined
-    const cleanedData = Object.fromEntries(
-      Object.entries(data).map(([k, v]) => [k, v === "" ? undefined : v])
-    );
-    analyze({ data: cleanedData as any });
+    const request: AnalysisRequest = {
+      symbol: data.symbol,
+      timeframe: data.timeframe,
+      ...(data.marketBias && { marketBias: data.marketBias }),
+      ...(data.entryPrice !== "" && data.entryPrice !== undefined && { entryPrice: data.entryPrice }),
+      ...(data.stopLoss !== "" && data.stopLoss !== undefined && { stopLoss: data.stopLoss }),
+      ...(data.target !== "" && data.target !== undefined && { target: data.target }),
+      ...(data.strategyNote && { strategyNote: data.strategyNote }),
+      ...(data.screenshotFileId && { screenshotFileId: data.screenshotFileId }),
+      ...(data.tradeFileId && { tradeFileId: data.tradeFileId }),
+    };
+    analyze({ data: request });
   };
 
   return (
