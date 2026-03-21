@@ -46,6 +46,14 @@ export class IngestionService {
     };
   }
 
+  /**
+   * Parse a trade history CSV into structured records.
+   *
+   * MVP limitation: uses simple comma splitting. Fields containing commas or
+   * double-quoted strings (RFC 4180) are not supported. Expected columns (any
+   * order, case-insensitive): date/timestamp, symbol/ticker, side/direction,
+   * entry/entry_price, exit/exit_price, pnl/profit_loss.
+   */
   parseTradeCSV(csvContent: string): Array<{
     date: string;
     symbol: string;
