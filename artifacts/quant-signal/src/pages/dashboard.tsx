@@ -109,7 +109,7 @@ export default function Dashboard() {
               </thead>
               <tbody className="divide-y divide-border/30">
                 {data.items.map((item, i) => (
-                  <tr key={item.id} className="hover:bg-muted/30 transition-colors group cursor-pointer" onClick={() => window.location.href = `/analyze`}>
+                  <tr key={item.id} className="hover:bg-muted/30 transition-colors group">
                     <td className="p-4">
                       <div className="flex items-center gap-3">
                         <span className="font-bold text-lg tracking-tight">{item.symbol}</span>
