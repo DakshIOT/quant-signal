@@ -46,7 +46,7 @@ const SEED_SIGNALS = [
   },
   {
     symbol: "XAUUSD", timeframe: "4h", signal: "Hold" as const,
-    confidenceScore: 48, riskScore: 55, marketRegime: "ranging" as const,
+    confidenceScore: 48, riskScore: 55, marketRegime: "range" as const,
     finalBanner: "Caution" as const, marketBias: "neutral",
     explanation: "Market in a ranging regime. No clear directional conviction. Better to wait for a breakout.",
     invalidationZone: "N/A — Hold signal, no active entry",
