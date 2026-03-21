@@ -48,4 +48,9 @@ app.use((err: Error, _req: Request, res: Response, next: NextFunction) => {
   next(err);
 });
 
+app.use((err: Error, req: Request, res: Response, _next: NextFunction) => {
+  req.log?.error({ err }, "Unhandled error");
+  res.status(500).json({ error: "internal_error", message: err.message ?? "An unexpected error occurred" });
+});
+
 export default app;

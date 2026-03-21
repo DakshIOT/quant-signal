@@ -1,13 +1,15 @@
 import { Router, type IRouter } from "express";
 import { randomUUID } from "crypto";
 import { mkdirSync } from "fs";
+import { fileURLToPath } from "url";
 import multer from "multer";
 import path from "path";
 import { db } from "@workspace/db";
 import { uploadedFilesTable, tradeHistoryTable } from "@workspace/db/schema";
 import { ingestionService } from "../services/ingestionService.js";
 
-const uploadsDir = path.join(process.cwd(), "uploads");
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const uploadsDir = path.resolve(__dirname, "..", "..", "uploads");
 mkdirSync(uploadsDir, { recursive: true });
 
 const storage = multer.diskStorage({
