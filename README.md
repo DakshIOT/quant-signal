@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="docs/assets/dashboard.png" alt="QuantSignal Dashboard" width="900" />
-
 # QuantSignal
 
 **AI-powered live market signal validation platform for crypto traders, quants, and researchers.**
@@ -13,7 +11,9 @@
 [![Gemini](https://img.shields.io/badge/AI-Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
 [![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
 
-[Features](#features) · [Screenshots](#screenshots) · [Architecture](#architecture) · [Tech Stack](#tech-stack) · [Getting Started](#getting-started) · [API](#api-reference)
+[Live Demo](https://dakshiot.github.io/quant-signal) · [Features](#features) · [Screenshots](#screenshots) · [Architecture](#architecture) · [Getting Started](#getting-started) · [API](#api-reference)
+
+<img src="docs/assets/demo.gif" alt="QuantSignal Demo" width="900" />
 
 </div>
 
